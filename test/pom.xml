@@ -5,12 +5,12 @@
   <name>CX :: Annotation Test</name>
 
   <groupId>de.conxult</groupId>
-  <artifactId>cx-annotation-test</artifactId>
+  <artifactId>annotation-test</artifactId>
   <version>1.0.0</version>
 
   <parent>
     <groupId>de.conxult</groupId>
-    <artifactId>cx-annotation-pom</artifactId>
+    <artifactId>annotation-pom</artifactId>
     <version>1.0.0</version>
   </parent>
     

@@ -5,7 +5,7 @@
   <name>CX :: Annotation (POM)</name>
 
   <groupId>de.conxult</groupId>
-  <artifactId>cx-annotation-pom</artifactId>
+  <artifactId>annotation-pom</artifactId>
   <version>1.0.0</version>
 
   <properties>
@@ -15,20 +15,20 @@
   <parent>
       <groupId>de.conxult</groupId>
       <artifactId>java</artifactId>
-      <version>17</version>
-  </parent>  
+      <version>21</version>
+  </parent>
 
   <modules>
     <module>processor</module>
     <module>test</module>
   </modules>
-  
+
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>4.12</version>
+        <version>4.13.2</version>
         <scope>test</scope>
       </dependency>
     </dependencies>

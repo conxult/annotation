@@ -5,25 +5,25 @@
     <name>CX :: Annotation Test Processor</name>
 
     <groupId>de.conxult</groupId>
-    <artifactId>cx-annotation-test-processor</artifactId>
+    <artifactId>annotation-test-processor</artifactId>
     <version>1.0.0</version>
 
     <parent>
         <groupId>de.conxult</groupId>
-        <artifactId>cx-annotation-test</artifactId>
+        <artifactId>annotation-test</artifactId>
         <version>1.0.0</version>
     </parent>
 
     <dependencies>
         <dependency>
             <groupId>de.conxult</groupId>
-            <artifactId>cx-annotation-test-common</artifactId>
+            <artifactId>annotation-test-common</artifactId>
             <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>de.conxult</groupId>
-            <artifactId>cx-annotation-processor</artifactId>
+            <artifactId>annotation-processor</artifactId>
             <version>1.0.0</version>
         </dependency>
     

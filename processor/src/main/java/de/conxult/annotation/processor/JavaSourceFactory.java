@@ -16,7 +16,7 @@ import org.jboss.forge.roaster.model.source.JavaSource;
 
 /**
  *
- * @author joergh
+ * @author joerg
  */
 public class JavaSourceFactory {
 

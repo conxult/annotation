@@ -30,7 +30,7 @@ import org.jboss.forge.roaster.model.JavaType;
  * @author joerg
  *
  */
-@SupportedSourceVersion(SourceVersion.RELEASE_17)
+@SupportedSourceVersion(SourceVersion.RELEASE_21)
 public class ConxultAnnotationProcessor
     extends AbstractProcessor {
 
@@ -54,8 +54,6 @@ public class ConxultAnnotationProcessor
 
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
-        log.info("roundEnv " + roundEnv);
-
         for (ConxultAnnotationHandler handler : handlers) {
             for (Class annotationType : handler.getAnnotations()) {
                 for (Element element : (Set<Element>) roundEnv.getElementsAnnotatedWith(annotationType)) {
@@ -79,16 +77,14 @@ public class ConxultAnnotationProcessor
             }
         }
 
-        boolean result = false;
-
-        if (roundEnv.processingOver()) {
-            for (JavaType javaSource : javaSourceFactory.getJavaSources()) {
-                writeJavaType(javaSource);
-                result = true;
-            }
+        if (javaSourceFactory.getSources().isEmpty()) {
+            return false;
         }
 
-        return result;
+        javaSourceFactory.getJavaSources().forEach(this::writeJavaType);
+        javaSourceFactory.getSources().clear();
+
+        return true;
     }
 
     protected void writeJavaType(JavaType javaType) {
@@ -100,7 +96,7 @@ public class ConxultAnnotationProcessor
             outputWriter.print(javaType.toString());
             outputWriter.close();
         } catch (IOException ioException) {
-            log.warn(ioException, "createClassFile(" + javaType + ") failed! ");
+            log.warn(ioException, "createClassFile(" + javaType.getQualifiedName() + ") failed! ");
         }
     }
 
